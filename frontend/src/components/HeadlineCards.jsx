@@ -8,7 +8,7 @@ const HeadlineCards = () => {
     <div className="max-w-[1640px] mx-auto p-4 py-12 grid md:grid-cols-3 gap-6">
       <div className="rounded-xl relative">
         <div className="absolute w-full h-full bg-black/50 text-white rounded-xl">
-          <p className="font-bold text-2xl pt-4 px-2">Test1 Restaurant</p>
+          <p className="font-bold text-2xl pt-4 px-2">Meals</p>
           <p className="px-2">8/26</p>
           <button className="bg-white text-black border-white mx-2 absolute mt-5">
             Order Now
@@ -23,7 +23,7 @@ const HeadlineCards = () => {
 
       <div className="rounded-xl relative">
         <div className="absolute w-full h-full bg-black/50 text-white rounded-xl">
-          <p className="font-bold text-2xl pt-4 px-2">New Restaurant</p>
+          <p className="font-bold text-2xl pt-4 px-2">Beverages</p>
           <p className="px-2">8/26</p>
           <button className="bg-white text-black border-white mx-2 absolute mt-5">
             Vist Now

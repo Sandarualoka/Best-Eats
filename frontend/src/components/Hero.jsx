@@ -10,7 +10,7 @@ const Hero = () => {
             <span className="text-orange-600">The</span> Best
           </h1>
           <h1 className="px-4 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold ">
-            <span className="text-orange-600"> Food</span> Delivered
+            <span className="text-orange-600"> Food</span> Delivery
           </h1>
         </div>
         <img
