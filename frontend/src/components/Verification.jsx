@@ -1,5 +1,5 @@
 import React from "react";
-import Login_staff from "../assets/Login-staff.jpg";
+import Verify from "../assets/verification.jpg";
 import { Link } from "react-router-dom";
 
 const Login_Prisoner = () => {
@@ -8,8 +8,8 @@ const Login_Prisoner = () => {
       <div className="hidden sm:block h-screen w-full">
         <img
           className="w-full h-full object-cover"
-          src={Login_staff}
-          alt="login-staff-logo"
+          src={Verify}
+          alt="verification-img"
         />
       </div>
 
@@ -19,20 +19,24 @@ const Login_Prisoner = () => {
             <span className="text-orange-600 ">Freedom</span> Meals{" "}
             <span className="text-orange-600 ">Delivery</span>{" "}
           </h2>
-          <h1 className="text-[red] mb-3">Login As Staff Member</h1>
+          <h1 className="text-[red] mb-3">OTP Verification</h1>
           <div className="flex flex-col py-2">
-            <label>User Name</label>
+            <label>Phone Number</label>
             <input className="border p-2  rounded-lg" type="text" />
           </div>
 
+          <button className="border w-full my-5 py-2 bg-black font-bold text-white">
+            Send
+          </button>
+
           <div className="flex flex-col py-2">
-            <label>Staff ID</label>
-            <input className="border p-2 rounded-lg" type="text" />
+            <label>OTP Here</label>
+            <input className="border p-2  rounded-lg" type="text" />
           </div>
 
-          <Link to="/otp-ver">
+          <Link to="/home">
             <button className="border w-full my-5 py-2 bg-black font-bold text-white">
-              Next
+              Login
             </button>
           </Link>
         </form>

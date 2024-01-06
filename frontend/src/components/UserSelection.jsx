@@ -1,5 +1,6 @@
 import React from "react";
 import User_logo from "../assets/User_Sel.jpg";
+import { Link } from "react-router-dom";
 
 const UserSelection = () => {
   return (
@@ -20,17 +21,21 @@ const UserSelection = () => {
           </h2>
           <h1 className="text-[red] mb-3 text-2xl">Select User Type</h1>
 
-          <div>
-            <button className="border w-full my-5 py-2 bg-indigo-800 hover:bg-indigo-600 duration-75 text-white font-bold">
-              staff
-            </button>
-          </div>
+          <Link to="/login_staff">
+            <div className="flex items-center justify-center">
+              <button className="border w-[200px] my-4 py-2 bg-black text-white font-bold">
+                Staff
+              </button>
+            </div>
+          </Link>
 
-          <div>
-            <button className="border w-full my-5 py-2 bg-indigo-800 hover:bg-indigo-600 duration-75 text-white font-bold">
-              Prisonner
-            </button>
-          </div>
+          <Link to="/login_prisoner">
+            <div className="flex items-center justify-center">
+              <button className="border w-[200px]  my-4 py-2 bg-black text-white font-bold">
+                Prisonner
+              </button>
+            </div>
+          </Link>
         </form>
       </div>
     </div>

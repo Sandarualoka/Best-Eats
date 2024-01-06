@@ -1,5 +1,6 @@
 import React from "react";
 import Logo1 from "../assets/login-logo.jpg";
+import { Link } from "react-router-dom";
 
 const Login_Prisoner = () => {
   return (
@@ -28,14 +29,11 @@ const Login_Prisoner = () => {
             <input className="border p-2 rounded-lg" type="text" />
           </div>
 
-          <div className="flex flex-col py-2">
-            <label>Mobile Number</label>
-            <input className="border p-2  rounded-lg" type="text" />
-          </div>
-
-          <button className="border w-full my-5 py-2 bg-indigo-800 hover:bg-indigo-600 duration-75 text-white">
-            Login
-          </button>
+          <Link to="/otp-ver">
+            <button className="border w-full my-5 py-2 bg-black text-white font-bold">
+              Next
+            </button>
+          </Link>
         </form>
       </div>
     </div>
