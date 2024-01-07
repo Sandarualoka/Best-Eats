@@ -26,7 +26,7 @@ const Login_Prisoner = () => {
           </div>
 
           <button className="border w-full my-5 py-2 bg-black font-bold text-white">
-            Send
+            Send OTP
           </button>
 
           <div className="flex flex-col py-2">

@@ -19,6 +19,7 @@ const Login_Prisoner = () => {
             <span className="text-orange-600 ">Freedom</span> Meals{" "}
             <span className="text-orange-600 ">Delivery</span>{" "}
           </h2>
+          <h1 className="text-[red] mb-3">Login for a Prisoner</h1>
           <div className="flex flex-col py-2">
             <label>User Name</label>
             <input className="border p-2  rounded-lg" type="text" />

@@ -19,7 +19,7 @@ const UserSelection = () => {
             <span className="text-orange-600 ">Freedom</span> Meals{" "}
             <span className="text-orange-600 ">Delivery</span>{" "}
           </h2>
-          <h1 className="text-[red] mb-3 text-2xl">Select User Type</h1>
+          <h1 className="text-[red] mb-3">Select User Type</h1>
 
           <Link to="/login_staff">
             <div className="flex items-center justify-center">
