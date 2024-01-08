@@ -1,60 +1,60 @@
 import React from "react";
-import Test1 from "../assets/test1.jpg";
-import NewRest from "../assets/new-res.jpg";
-import Des from "../assets/dess.jpg";
+import Breakfast from "../assets/BreakFast.jpg";
+import Lunch from "../assets/Lunch.jpg";
+import Dinner from "../assets/Dinner.jpg";
 import { Link } from "react-router-dom";
 
-const HeadlineCards = () => {
+const ThreeMeals = () => {
   return (
     <div className="max-w-[1640px] mx-auto p-4 py-12 grid md:grid-cols-3 gap-6">
-      <Link to="/meal">
+      <Link to="/foods">
         <div className="rounded-xl relative">
           <div className="absolute w-full h-full bg-black/50 text-white rounded-xl">
-            <p className="font-bold text-2xl pt-4 px-2">Meals</p>
-            <p className="px-2">8/26</p>
-            <button className="bg-white text-black border-white mx-2 absolute mt-5">
+            <p className="font-bold text-2xl pt-4 px-2">BreakFast</p>
+
+            {/* <button className="bg-white text-black border-white mx-2 absolute mt-5">
               Order Now
-            </button>
+            </button> */}
           </div>
           <img
             className="max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl"
-            src={Test1}
-            alt="test1"
+            src={Breakfast}
+            alt="breakfast"
           />
         </div>
       </Link>
 
       <div className="rounded-xl relative">
         <div className="absolute w-full h-full bg-black/50 text-white rounded-xl">
-          <p className="font-bold text-2xl pt-4 px-2">Beverages</p>
-          <p className="px-2">8/26</p>
+          <p className="font-bold text-2xl pt-4 px-2">Lunch</p>
+          {/* <p className="px-2">8/26</p>
           <button className="bg-white text-black border-white mx-2 absolute mt-5">
             Vist Now
-          </button>
+          </button> */}
         </div>
         <img
           className="max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl"
-          src={NewRest}
-          alt="/"
+          src={Lunch}
+          alt="lunch"
         />
       </div>
 
       <div className="rounded-xl relative">
         <div className="absolute w-full h-full bg-black/50 text-white rounded-xl">
-          <p className="font-bold text-2xl pt-4 px-2">Desserts</p>
-          <p className="px-2">8/26</p>
+          <p className="font-bold text-2xl pt-4 px-2">Dinner</p>
+          {/* <p className="px-2">8/26</p>
           <button className="bg-white text-black border-white mx-2 absolute mt-5">
             Order Now
-          </button>
+          </button> */}
         </div>
         <img
           className="max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl"
-          src={Des}
-          alt="test1"
+          src={Dinner}
+          alt="dinner"
         />
       </div>
     </div>
   );
 };
 
-export default HeadlineCards;
+export default ThreeMeals;

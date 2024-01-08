@@ -1,15 +1,16 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import HeadlineCards from "../components/HeadlineCards";
+import ThreeMeals from "../components/ThreeMeals";
 
-const Home = () => {
+const Meal = () => {
   return (
     <div>
       <Navbar />
       <Hero />
-      <HeadlineCards />
+      <ThreeMeals />
     </div>
   );
 };
-export default Home;
+
+export default Meal;

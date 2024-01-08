@@ -4,7 +4,8 @@ import Login_Prisoner from "./components/Login_Prisoner";
 import Login_Staff from './components/Login_Staff';
 import UserSelection from "./components/UserSelection";
 import Verification from './components/Verification';
-
+import Meal from './pages/Meal';
+import Foods from './pages/Foods';
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
           <Route path='/login_staff' element={<Login_Staff/>}/>
           <Route path='/login_prisoner' element={<Login_Prisoner/>} />
           <Route path='/otp-ver' element={<Verification/>} />
+          <Route path='/meal' element={<Meal/>} />
+          <Route path='/foods' element={<Foods/>} />
       </Routes>
       </BrowserRouter>
     </div>
