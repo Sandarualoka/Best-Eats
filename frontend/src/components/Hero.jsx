@@ -1,5 +1,5 @@
 import React from "react";
-import Cover from "../assets/cover.jpg";
+import CoverNew from "../assets/Cover_new.jpg";
 
 const Hero = () => {
   return (
@@ -15,7 +15,7 @@ const Hero = () => {
         </div>
         <img
           className="w-full max-h-[500px] object-cover"
-          src={Cover}
+          src={CoverNew}
           alt="cover"
         ></img>
       </div>

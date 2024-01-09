@@ -6,6 +6,7 @@ import UserSelection from "./components/UserSelection";
 import Verification from './components/Verification';
 import Meal from './pages/Meal';
 import Foods from './pages/Foods';
+import StaffReg from './components/StaffReg';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/otp-ver' element={<Verification/>} />
           <Route path='/meal' element={<Meal/>} />
           <Route path='/foods' element={<Foods/>} />
+          <Route path='/staff-reg' element={<StaffReg/>} />
       </Routes>
       </BrowserRouter>
     </div>

@@ -31,7 +31,7 @@ const UserSelection = () => {
 
           <Link to="/login_prisoner">
             <div className="flex items-center justify-center">
-              <button className="border w-[200px]  my-4 py-2 bg-black text-white font-bold">
+              <button className="border w-[200px]  my-2 py-2 bg-black text-white font-bold">
                 Prisonner
               </button>
             </div>
