@@ -59,10 +59,12 @@
 
 //*****************************************************************************fetchin stage StaffReg******************************************************************************************************* */
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Reg from "../assets/Reg.jpg";
 
 const StaffReg = () => {
+  const navigate = useNavigate(); // Initialize useNavigate hook
+
   const [userName, setUserName] = useState("");
   const [staffId, setStaffId] = useState("");
   const [password, setPassword] = useState("");
@@ -97,8 +99,8 @@ const StaffReg = () => {
       });
 
       if (response.ok) {
-        // Registration successful, you can redirect the user or perform other actions
-        console.log("Registration successful!");
+        // Registration successful, navigate to "/otp-ver"
+        navigate("/otp-ver");
       } else {
         // Handle unsuccessful registration (show error message, etc.)
         console.log("Registration failed.");
