@@ -58,7 +58,6 @@
 // export default StaffReg;
 
 //*****************************************************************************fetchin stage StaffReg******************************************************************************************************* */
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Reg from "../assets/Reg.jpg";
@@ -72,7 +71,9 @@ const StaffReg = () => {
   const [section, setSection] = useState("");
   const [passwordMatchError, setPasswordMatchError] = useState(false);
 
-  const handleRegister = async () => {
+  const handleRegister = async (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+
     // Check if passwords match before making the registration request
     if (password !== confirmPassword) {
       setPasswordMatchError(true);
@@ -115,7 +116,10 @@ const StaffReg = () => {
       </div>
 
       <div className="bg-gray-100 flex flex-col justify-center">
-        <form className="max-w-[400px] w-full mx-auto bg-white p-4">
+        <form
+          className="max-w-[400px] w-full mx-auto bg-white p-4"
+          onSubmit={handleRegister}
+        >
           <h2 className="text-4xl font-bold text-center py-6">
             <span className="text-orange-600 ">Freedom</span> Meals{" "}
             <span className="text-orange-600 ">Delivery</span>{" "}
@@ -194,7 +198,7 @@ const StaffReg = () => {
 
           <button
             className="border w-full my-5 py-2 bg-black font-bold text-white"
-            onClick={handleRegister}
+            type="submit"
           >
             Next
           </button>
