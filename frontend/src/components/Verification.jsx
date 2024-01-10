@@ -48,7 +48,7 @@
 // export default Verification;
 
 //*********************************************************fetching data otp-ver********************************************************************************
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Verify from "../assets/verification.jpg";
 import { Link } from "react-router-dom";
 
@@ -56,6 +56,19 @@ const Verification = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [otp, setOtp] = useState("");
   const [isOtpVerified, setIsOtpVerified] = useState(false);
+  const [countdown, setCountdown] = useState(600); // 10 minutes in seconds
+
+  useEffect(() => {
+    // Start countdown timer when component mounts
+    const timer = setInterval(() => {
+      if (countdown > 0) {
+        setCountdown((prevCountdown) => prevCountdown - 1);
+      }
+    }, 1000);
+
+    // Clear the timer when component unmounts
+    return () => clearInterval(timer);
+  }, [countdown]);
 
   const sendOtp = () => {
     // Assume you have an API function to send OTP and verify it
@@ -71,7 +84,7 @@ const Verification = () => {
       .then((response) => response.json())
       .then((data) => {
         // Assuming your API response includes the OTP
-        const receivedOtp = data.otp;
+        const receivedOtp = data.otp.substring(0, 4); // Limit OTP to 4 digits
         setOtp(receivedOtp);
       })
       .catch((error) => {
@@ -83,8 +96,8 @@ const Verification = () => {
     // Check if the entered OTP matches the received OTP
     if (otp === "") {
       alert("Please enter OTP.");
-    } else if (otp.length !== 6 || isNaN(otp)) {
-      alert("OTP should be a 6-digit number.");
+    } else if (otp.length !== 4 || isNaN(otp)) {
+      alert("OTP should be a 4-digit number.");
     } else {
       setIsOtpVerified(true);
     }
@@ -92,8 +105,6 @@ const Verification = () => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2">
-      {/* ... (your existing code for the image section) */}
-
       <div className="hidden sm:block h-screen w-full">
         <img
           className="w-full h-full object-cover"
@@ -104,8 +115,6 @@ const Verification = () => {
 
       <div className="bg-gray-100 flex flex-col justify-center">
         <form className="max-w-[400px] w-full mx-auto bg-white p-4">
-          {/* ... (your existing code for the form) */}
-
           <h2 className="text-4xl font-bold text-center py-6">
             <span className="text-orange-600 ">Freedom</span> Meals{" "}
             <span className="text-orange-600 ">Delivery</span>{" "}
@@ -124,8 +133,9 @@ const Verification = () => {
           <button
             className="border w-full my-5 py-2 bg-black font-bold text-white"
             onClick={sendOtp}
+            disabled={countdown > 0 || !phoneNumber}
           >
-            Send OTP
+            Send OTP ({Math.floor(countdown / 60)}:{countdown % 60})
           </button>
 
           <div className="flex flex-col py-2">

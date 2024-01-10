@@ -9,50 +9,45 @@ const ThreeMeals = () => {
     <div className="max-w-[1640px] mx-auto p-4 py-12 grid md:grid-cols-3 gap-6">
       <Link to="/foods">
         <div className="rounded-xl relative">
-          <div className="absolute w-full h-full bg-black/50 text-white rounded-xl">
-            <p className="font-bold text-2xl pt-4 px-2">BreakFast</p>
-
-            {/* <button className="bg-white text-black border-white mx-2 absolute mt-5">
-              Order Now
-            </button> */}
+          <div className="absolute w-full h-full bg-black/50 text-white rounded-xl flex flex-col justify-center items-center">
+            <p className="font-bold text-2xl px-2">Breakfast</p>
           </div>
+
           <img
-            className="max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl"
+            className="max-h-[100px] md:max-h-[200px] w-full object-cover rounded-xl"
             src={Breakfast}
             alt="breakfast"
           />
         </div>
       </Link>
 
-      <div className="rounded-xl relative">
-        <div className="absolute w-full h-full bg-black/50 text-white rounded-xl">
-          <p className="font-bold text-2xl pt-4 px-2">Lunch</p>
-          {/* <p className="px-2">8/26</p>
-          <button className="bg-white text-black border-white mx-2 absolute mt-5">
-            Vist Now
-          </button> */}
-        </div>
-        <img
-          className="max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl"
-          src={Lunch}
-          alt="lunch"
-        />
-      </div>
+      <Link to="/foods">
+        <div className="rounded-xl relative">
+          <div className="absolute w-full h-full bg-black/50 text-white rounded-xl flex flex-col justify-center items-center">
+            <p className="font-bold text-2xl px-2">Lunch</p>
+          </div>
 
-      <div className="rounded-xl relative">
-        <div className="absolute w-full h-full bg-black/50 text-white rounded-xl">
-          <p className="font-bold text-2xl pt-4 px-2">Dinner</p>
-          {/* <p className="px-2">8/26</p>
-          <button className="bg-white text-black border-white mx-2 absolute mt-5">
-            Order Now
-          </button> */}
+          <img
+            className="max-h-[100px] md:max-h-[200px] w-full object-cover rounded-xl"
+            src={Lunch}
+            alt="lunch"
+          />
         </div>
-        <img
-          className="max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl"
-          src={Dinner}
-          alt="dinner"
-        />
-      </div>
+      </Link>
+
+      <Link to="/foods">
+        <div className="rounded-xl relative">
+          <div className="absolute w-full h-full bg-black/50 text-white rounded-xl flex flex-col justify-center items-center">
+            <p className="font-bold text-2xl px-2">Dinner</p>
+          </div>
+
+          <img
+            className="max-h-[100px] md:max-h-[200px] w-full object-cover rounded-xl"
+            src={Dinner}
+            alt="dinner"
+          />
+        </div>
+      </Link>
     </div>
   );
 };

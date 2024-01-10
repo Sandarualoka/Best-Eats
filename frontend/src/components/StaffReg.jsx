@@ -57,7 +57,7 @@
 
 // export default StaffReg;
 
-//*****************************************************************************fetchin stage StaffReg******************************************************************************************************* */
+//*****************************************************************************fetching stage StaffReg******************************************************************************************************* */
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Reg from "../assets/Reg.jpg";
@@ -199,7 +199,7 @@ const StaffReg = () => {
           </div>
 
           <button
-            className="border w-full my-5 py-2 bg-black font-bold text-white"
+            className="border w-full my-5 py-1 bg-black font-bold text-white"
             type="submit"
           >
             Next
