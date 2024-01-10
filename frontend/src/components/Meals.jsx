@@ -1,12 +1,13 @@
 // import axios from "axios";
 // import React, { useEffect, useState } from "react";
-// import { Modal } from "@mui/material";
+// import { Modal, Button } from "@mui/material";
 
 // const Food = () => {
 //   const [productData, setProductData] = useState([]);
 //   const [selectedProduct, setSelectedProduct] = useState(null);
 //   const [modalOpen, setModalOpen] = useState(false);
 //   const [cart, setCart] = useState([]);
+//   const [quantity, setQuantity] = useState(1); // Initialize with 1
 
 //   useEffect(() => {
 //     const fetchData = async () => {
@@ -46,8 +47,21 @@
 
 //   const handleAddToCart = () => {
 //     if (selectedProduct) {
-//       setCart([...cart, selectedProduct]);
+//       const updatedCart = [...cart, { ...selectedProduct, quantity }];
+//       setCart(updatedCart);
 //       handleCloseModal();
+//       // Reset quantity to 1 for the next selection
+//       setQuantity(1);
+//     }
+//   };
+
+//   const handleIncreaseQuantity = () => {
+//     setQuantity((prevQuantity) => prevQuantity + 1);
+//   };
+
+//   const handleDecreaseQuantity = () => {
+//     if (quantity > 1) {
+//       setQuantity((prevQuantity) => prevQuantity - 1);
 //     }
 //   };
 
@@ -83,8 +97,37 @@
 //           </div>
 //         ))}
 //       </div>
+
 //       <Modal open={modalOpen} onClose={handleCloseModal}>
-//         <div className="max-w-[1640px] m-auto px-4 py-12"></div>
+//         <div className="max-w-[400px] m-auto px-4 py-12 text-center">
+//           <h2 className="text-2xl font-bold mb-4 text-white">
+//             {selectedProduct?.name}
+//           </h2>
+//           <img
+//             src={selectedProduct?.image}
+//             alt={selectedProduct?.name}
+//             className="w-full h-[200px] object-cover rounded-lg mb-4 "
+//           />
+//           <p className="text-white mb-4">{selectedProduct?.description}</p>
+//           <div className="flex items-center justify-center mb-4">
+//             <button
+//               className="mx-4 text-white  border-white"
+//               onClick={handleDecreaseQuantity}
+//             >
+//               -
+//             </button>
+//             <span className="mx-4 text-white  border-white">{quantity}</span>
+//             <button
+//               className="mx-4 text-white border-white"
+//               onClick={handleIncreaseQuantity}
+//             >
+//               +
+//             </button>
+//           </div>
+//           <Button variant="contained" onClick={handleAddToCart}>
+//             Add to Cart
+//           </Button>
+//         </div>
 //       </Modal>
 //     </div>
 //   );
@@ -101,7 +144,7 @@ const Food = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [cart, setCart] = useState([]);
-  const [quantity, setQuantity] = useState(1); // Initialize with 1
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -144,7 +187,6 @@ const Food = () => {
       const updatedCart = [...cart, { ...selectedProduct, quantity }];
       setCart(updatedCart);
       handleCloseModal();
-      // Reset quantity to 1 for the next selection
       setQuantity(1);
     }
   };
@@ -193,22 +235,37 @@ const Food = () => {
       </div>
 
       <Modal open={modalOpen} onClose={handleCloseModal}>
-        <div className="max-w-[400px] m-auto px-4 py-12 text-center">
-          <h2 className="text-2xl font-bold mb-4">{selectedProduct?.name}</h2>
-          <img
-            src={selectedProduct?.image}
-            alt={selectedProduct?.name}
-            className="w-full h-[200px] object-cover rounded-lg mb-4"
-          />
-          <p className="text-gray-600 mb-4">{selectedProduct?.description}</p>
-          <div className="flex items-center justify-center mb-4">
-            <button onClick={handleDecreaseQuantity}>-</button>
-            <span className="mx-4">{quantity}</span>
-            <button onClick={handleIncreaseQuantity}>+</button>
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
+          <div className="absolute inset-0" onClick={handleCloseModal}></div>
+          <div className="max-w-[400px] m-auto px-4 py-12 text-center relative">
+            <h2 className="text-2xl font-bold mb-4 text-white">
+              {selectedProduct?.name}
+            </h2>
+            <img
+              src={selectedProduct?.image}
+              alt={selectedProduct?.name}
+              className="w-full h-[200px] object-cover rounded-lg mb-4"
+            />
+            <p className="text-white mb-4">{selectedProduct?.description}</p>
+            <div className="flex items-center justify-center mb-4">
+              <button
+                className="mx-4 text-white border-white"
+                onClick={handleDecreaseQuantity}
+              >
+                -
+              </button>
+              <span className="mx-4 text-white border-white">{quantity}</span>
+              <button
+                className="mx-4 text-white border-white"
+                onClick={handleIncreaseQuantity}
+              >
+                +
+              </button>
+            </div>
+            <Button variant="contained" onClick={handleAddToCart}>
+              Add to Cart
+            </Button>
           </div>
-          <Button variant="contained" onClick={handleAddToCart}>
-            Add to Cart
-          </Button>
         </div>
       </Modal>
     </div>
