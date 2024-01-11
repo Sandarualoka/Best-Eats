@@ -20,10 +20,12 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <button className="md:flex bg-black text-white items-center py-2 rounded-full">
-        <BsFillCartFill size={20} className="mr-2" />
-        <span className="hidden md:flex">Cart</span>
-      </button>
+      <Link to="/checkout">
+        <button className="md:flex bg-black text-white items-center py-2 rounded-full">
+          <BsFillCartFill size={20} className="mr-2" />
+          <span className="hidden md:flex">Cart</span>
+        </button>
+      </Link>
     </div>
   );
 };
