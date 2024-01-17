@@ -4,7 +4,8 @@ import { useLocation } from "react-router-dom";
 import { Modal, Button, IconButton, Pagination } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-const Food = () => {
+
+const Beverage = () => {
   const location = useLocation();
   const category = new URLSearchParams(location.search).get("category");
 
@@ -43,8 +44,8 @@ const Food = () => {
     fetchData(currentPage);
   }, [currentPage, category]);
 
-  const handleOpenModal = (product) => {
-    setSelectedProduct(product);
+  const handleOpenModal = (product, option) => {
+    setSelectedProduct({ ...product, option });
     setModalOpen(true);
   };
 
@@ -86,8 +87,8 @@ const Food = () => {
   return (
     <div className="max-w-[1640px] m-auto px-4 py-12">
       <h1 className="font-bold text-3xl text-center mb-8">
-        <span className="text-orange-600">SAVORFULL</span>
-        <span className="text-black"> SELECTIONS</span>
+        <span className="text-orange-600">BEVER</span>
+        <span className="text-black">AGES</span>
       </h1>
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
         {productData.map((product, index) => (
@@ -109,12 +110,14 @@ const Food = () => {
                   </span>
                 </p>
               </div>
-              <button
-                className="bg-black text-white px-2 rounded-full sm:px-1"
-                onClick={() => handleOpenModal(product)}
-              >
-                <ShoppingCartOutlinedIcon />
-              </button>
+              <div className="flex">
+                <button
+                  className="bg-black text-white px-2 rounded-full sm:px-1 mr-2"
+                  onClick={() => handleOpenModal(product, "food")}
+                >
+                  <ShoppingCartOutlinedIcon />
+                </button>
+              </div>
             </div>
           </div>
         ))}
@@ -172,4 +175,4 @@ const Food = () => {
   );
 };
 
-export default Food;
+export default Beverage;
