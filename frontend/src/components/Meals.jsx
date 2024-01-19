@@ -5,6 +5,7 @@ import { Modal, Button, IconButton, Pagination } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import "react-calendar/dist/Calendar.css";
+
 const Food = () => {
   const location = useLocation();
   const category = new URLSearchParams(location.search).get("category");
@@ -23,7 +24,7 @@ const Food = () => {
     const fetchData = async (pageNumber) => {
       try {
         const response = await axios.get(
-          `https://backfood.tfdatamaster.com/api/v1/itempart?pageNumber=${pageNumber}&itemsPerPage=${itemsPerPage}&category=${category}`
+          `https://backprison.talentfort.live/api/v1/itempart?pageNumber=${pageNumber}&itemsPerPage=${itemsPerPage}&category=${category}`
         );
 
         const formattedProductData = response.data.map((product) => ({

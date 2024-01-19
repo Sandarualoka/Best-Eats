@@ -10,6 +10,7 @@ import StaffReg from './components/StaffReg';
 import Checkout from './pages/Checkout';
 import Cart from './components/Cart';
 
+
 function App() {
   return (
     <div>
