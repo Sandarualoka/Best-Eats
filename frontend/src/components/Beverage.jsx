@@ -84,6 +84,20 @@ const Beverage = () => {
     setCurrentPage(newPage);
   };
 
+  // Function to generate and format dates
+  const generateFormattedDates = () => {
+    const currentDate = new Date();
+    const formattedDates = [];
+
+    for (let i = 0; i < 3; i++) {
+      const date = new Date();
+      date.setDate(currentDate.getDate() + i);
+      formattedDates.push(date.toISOString().split("T")[0]);
+    }
+
+    return formattedDates;
+  };
+
   return (
     <div className="max-w-[1640px] m-auto px-4 py-12">
       <h1 className="font-bold text-3xl text-center mb-8">
@@ -153,7 +167,7 @@ const Beverage = () => {
             />
             <p className="text-white mb-4">{selectedProduct?.description}</p>
             <div className="flex items-center justify-center mb-4">
-              {[0, 1, 2].map((index) => (
+              {generateFormattedDates().map((date, index) => (
                 <button
                   key={index}
                   className={`mx-4 text-white border-white focus:outline-none focus:border-blue-500 p-2 ${
@@ -161,7 +175,7 @@ const Beverage = () => {
                   }`}
                   onClick={() => handleToggleDay(index)}
                 >
-                  Day {index + 1}
+                  {date}
                 </button>
               ))}
             </div>

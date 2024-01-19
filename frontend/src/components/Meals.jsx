@@ -4,9 +4,7 @@ import { useLocation } from "react-router-dom";
 import { Modal, Button, IconButton, Pagination } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-
 const Food = () => {
   const location = useLocation();
   const category = new URLSearchParams(location.search).get("category");
@@ -64,19 +62,50 @@ const Food = () => {
   };
 
   const handleScheduleMeal = () => {
-    if (selectedProduct && selectedDate) {
-      const productId = selectedProduct.id;
-      const formattedDate = selectedDate.toISOString().split("T")[0];
-
-      setProductDates((prevDates) => ({
-        ...prevDates,
-        [productId]: prevDates[productId]
-          ? [...prevDates[productId], formattedDate]
-          : [formattedDate],
-      }));
-
-      handleCloseScheduleModal();
+    if (selectedProduct) {
+      setScheduleModalOpen(true);
     }
+  };
+
+  const renderDateButtons = () => {
+    const currentDate = new Date();
+    const dateButtons = [];
+
+    for (let i = 0; i < 3; i++) {
+      const buttonDate = new Date();
+      buttonDate.setDate(currentDate.getDate() + i);
+      const formattedDate = `${buttonDate.getDate()} ${buttonDate.toLocaleString(
+        "default",
+        { month: "short" }
+      )}`;
+      dateButtons.push(
+        <Button
+          key={i}
+          variant="contained"
+          onClick={() => handleScheduleMealOnDate(buttonDate)}
+        >
+          {formattedDate}
+        </Button>
+      );
+    }
+
+    return (
+      <div className="flex justify-center space-x-4 mt-4">{dateButtons}</div>
+    );
+  };
+
+  const handleScheduleMealOnDate = (date) => {
+    const productId = selectedProduct.id;
+    const formattedDate = date.toISOString().split("T")[0];
+
+    setProductDates((prevDates) => ({
+      ...prevDates,
+      [productId]: prevDates[productId]
+        ? [...prevDates[productId], formattedDate]
+        : [formattedDate],
+    }));
+
+    handleCloseScheduleModal();
   };
 
   const handlePageChange = (event, newPage) => {
@@ -150,33 +179,9 @@ const Food = () => {
             />
             <p className="text-white mb-4">{selectedProduct?.description}</p>
             <Button variant="contained" onClick={handleScheduleMeal}>
-              Schedule Meal
+              Add to Cart
             </Button>
-          </div>
-        </div>
-      </Modal>
-
-      <Modal open={scheduleModalOpen} onClose={handleCloseScheduleModal}>
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
-          <div
-            className="absolute inset-0"
-            onClick={handleCloseScheduleModal}
-          ></div>
-          <div className="max-w-[400px] m-auto px-4 py-12 text-center relative">
-            <h2 className="text-2xl font-bold mb-4">
-              Schedule a Meal for {selectedProduct?.name}
-            </h2>
-            <IconButton
-              className="ml-4"
-              style={{ color: "white" }}
-              onClick={handleCloseScheduleModal}
-            >
-              <CloseIcon />
-            </IconButton>
-            <Calendar onChange={handleDateChange} value={selectedDate} />
-            <Button variant="contained" onClick={handleScheduleMeal}>
-              Schedule Meal
-            </Button>
+            {scheduleModalOpen && renderDateButtons()}
           </div>
         </div>
       </Modal>
