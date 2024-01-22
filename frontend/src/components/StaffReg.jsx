@@ -143,7 +143,7 @@ const StaffReg = () => {
             className="border w-full my-5 py-1 bg-black font-bold text-white"
             type="submit"
           >
-            Next
+            Sign Up
           </button>
         </form>
       </div>

@@ -24,7 +24,7 @@ const Food = () => {
     const fetchData = async (pageNumber) => {
       try {
         const response = await axios.get(
-          `https://backprison.talentfort.live/api/v1/itempart?pageNumber=${pageNumber}&itemsPerPage=${itemsPerPage}&category=${category}`
+          `https://backfood.tfdatamaster.com/api/v1/itempart?pageNumber=${pageNumber}&itemsPerPage=${itemsPerPage}&category=${category}`
         );
 
         const formattedProductData = response.data.map((product) => ({
