@@ -4,6 +4,8 @@ import { useLocation } from "react-router-dom";
 import { Modal, Button, IconButton, Pagination } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import moment from "moment";
+import "moment-timezone";
 import "react-calendar/dist/Calendar.css";
 
 const Food = () => {
@@ -69,16 +71,27 @@ const Food = () => {
   };
 
   const renderDateButtons = () => {
-    const currentDate = new Date();
+    const currentDate = moment().tz("Asia/Colombo");
     const dateButtons = [];
 
-    for (let i = 0; i < 3; i++) {
-      const buttonDate = new Date();
-      buttonDate.setDate(currentDate.getDate() + i);
-      const formattedDate = `${buttonDate.getDate()} ${buttonDate.toLocaleString(
-        "default",
-        { month: "short" }
-      )}`;
+    for (
+      let i = 0;
+      i < (category === "lunch" && currentDate.hours() < 10 ? 3 : 4);
+      i++
+    ) {
+      const buttonDate = moment().tz("Asia/Colombo").add(i, "days");
+
+      // Check if it's lunch and the current time is after 10:00 am
+      if (category === "lunch" && currentDate.hours() >= 10 && i === 0) {
+        continue; // Skip the first date if it's lunch and the current time is after 10:00 am
+      }
+
+      // Check if it's breakfast and the current time is after 12:00 midnight
+      if (category === "breakfast" && currentDate.hours() >= 0 && i === 0) {
+        continue; // Skip the first date if it's breakfast and the current time is after 12:00 midnight
+      }
+
+      const formattedDate = buttonDate.format("DD MMM");
       dateButtons.push(
         <Button
           key={i}
@@ -97,7 +110,7 @@ const Food = () => {
 
   const handleScheduleMealOnDate = (date) => {
     const productId = selectedProduct.id;
-    const formattedDate = date.toISOString().split("T")[0];
+    const formattedDate = date.format("YYYY-MM-DD");
 
     setProductDates((prevDates) => ({
       ...prevDates,
