@@ -76,7 +76,14 @@
 
 //     for (
 //       let i = 0;
-//       i < (category === "lunch" && currentDate.hours() < 10 ? 3 : 4);
+//       i <
+//       (category === "lunch" && currentDate.hours() < 10
+//         ? 3
+//         : category === "dinner" && currentDate.hours() < 14
+//         ? 3
+//         : category === "breakfast" && currentDate.hours() < 10
+//         ? 3
+//         : 4);
 //       i++
 //     ) {
 //       const buttonDate = moment().tz("Asia/Colombo").add(i, "days");
@@ -86,9 +93,14 @@
 //         continue; // Skip the first date if it's lunch and the current time is after 10:00 am
 //       }
 
-//       // Check if it's breakfast and the current time is after 12:00 midnight
-//       if (category === "breakfast" && currentDate.hours() >= 0 && i === 0) {
-//         continue; // Skip the first date if it's breakfast and the current time is after 12:00 midnight
+//       // Check if it's dinner and the current time is after 2:00 pm
+//       if (category === "dinner" && currentDate.hours() >= 14 && i === 0) {
+//         continue; // Skip the first date if it's dinner and the current time is after 2:00 pm
+//       }
+
+//       // Check if it's breakfast and the current time is after 10:00 pm
+//       if (category === "breakfast" && currentDate.hours() >= 10 && i === 0) {
+//         continue; // Skip the first date if it's breakfast and the current time is after 10:00 am
 //       }
 
 //       const formattedDate = buttonDate.format("DD MMM");

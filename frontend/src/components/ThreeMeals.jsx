@@ -18,7 +18,7 @@ const ThreeMeals = () => {
           {/* Pass category as query parameter */}
           <div className="rounded-xl relative">
             <div className="absolute w-full h-full bg-black/50 text-white rounded-xl flex flex-col justify-center items-center">
-              <p className="font-bold text-2xl px-2">Breakfast</p>
+              <p className="font-bold text-3xl px-2">Breakfast</p>
             </div>
 
             <img
@@ -32,7 +32,7 @@ const ThreeMeals = () => {
         <Link to="/foods?category=lunch">
           <div className="rounded-xl relative">
             <div className="absolute w-full h-full bg-black/50 text-white rounded-xl flex flex-col justify-center items-center">
-              <p className="font-bold text-2xl px-2">Lunch</p>
+              <p className="font-bold text-3xl px-2">Lunch</p>
             </div>
 
             <img
@@ -46,7 +46,7 @@ const ThreeMeals = () => {
         <Link to="/foods?category=dinner">
           <div className="rounded-xl relative">
             <div className="absolute w-full h-full bg-black/50 text-white rounded-xl flex flex-col justify-center items-center">
-              <p className="font-bold text-2xl px-2">Dinner</p>
+              <p className="font-bold text-3xl px-2">Dinner</p>
             </div>
 
             <img
