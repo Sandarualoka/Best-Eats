@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BsFillCartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import head from "../assets/head.png";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -13,10 +14,11 @@ const Navbar = () => {
           className="cursor cursor-pointer"
         ></div>
         <Link to="/home">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl px-2">
+          {/* <h1 className="text-2xl sm:text-3xl lg:text-4xl px-2">
             <span className="text-orange-600 font-bold">Freedom</span>{" "}
             <span className="font-bold">Meals</span>
-          </h1>
+          </h1> */}
+          <img src={head} style={{ width: "200px", height: '200px"' }} />
         </Link>
       </div>
 

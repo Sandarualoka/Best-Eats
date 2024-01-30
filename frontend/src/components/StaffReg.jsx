@@ -64,7 +64,7 @@ const StaffReg = () => {
           onSubmit={handleRegister}
         >
           <h2 className="text-4xl font-bold text-center py-6">
-            <span className="text-orange-600 ">Freedom</span> Meals{" "}
+            <span className="text-orange-600 ">AYU</span> Meals{" "}
             <span className="text-orange-600 ">Delivery</span>{" "}
           </h2>
           <h1 className="text-[red] mb-3">Register As Staff Member</h1>
