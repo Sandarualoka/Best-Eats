@@ -107,6 +107,7 @@ const Login_Prisoner = () => {
 
   const handleNextButtonClick = async () => {
     // Construct the data object to be sent to the backend
+    // console.log("Next button clicked");
     const data = {
       userName: userName,
       wardNo: wardNo,
@@ -162,7 +163,7 @@ const Login_Prisoner = () => {
             <span className="text-orange-600 ">AYU</span> Meals{" "}
             <span className="text-orange-600 ">Delivery</span>{" "}
           </h2>
-          <h1 className="text-[red] mb-3">Login for a Prisoner</h1>
+          <h1 className="text-[red] mb-3">Login as a Prisoner</h1>
           <div className="flex flex-col py-2">
             <label>User Name</label>
             <input

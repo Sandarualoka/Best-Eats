@@ -14,6 +14,7 @@ const Navbar = () => {
           className="cursor cursor-pointer"
         ></div>
         <Link to="/home">
+          {/* Name Updating to Logo */}
           {/* <h1 className="text-2xl sm:text-3xl lg:text-4xl px-2">
             <span className="text-orange-600 font-bold">Freedom</span>{" "}
             <span className="font-bold">Meals</span>
