@@ -21,6 +21,10 @@ const Verification = () => {
     };
   }, [countdown, startCountdown]);
 
+  const formatTime = (time) => {
+    return time < 10 ? `0${time}` : time;
+  };
+
   const sendOtp = () => {
     if (phoneNumber.length !== 10 || isNaN(phoneNumber)) {
       alert("Please enter a valid 10-digit phone number.");
@@ -63,8 +67,8 @@ const Verification = () => {
           if (data.success) {
             setIsOtpVerified(true);
             setStartCountdown(false);
-            alert("OTP verification successful! Redirecting to home page.");
-            // Redirect to home page or perform other actions
+            alert("OTP verification successful! Redirecting to the home page.");
+            // Redirect to the home page or perform other actions
           } else {
             alert("Invalid OTP. Please try again.");
           }
@@ -76,45 +80,55 @@ const Verification = () => {
   };
 
   return (
-    <div className="text-center">
-      <h1 className="text-2xl font-bold mb-3 text-orange-600">
-        Verification Page
-      </h1>
-      <div>
-        <label>Phone Number:</label>
-        <input
-          type="text"
-          value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
-          className="ml-5 h-8 border-2 border-gray-300 rounded text-center mr-1"
+    <div className="flex items-center justify-center h-screen">
+      <div className="text-center">
+        <h1 className="text-3xl font-bold mb-3 text-orange-600">
+          Verification Page
+        </h1>
+        <div className="flex flex-col items-center">
+          <label className="mb-1">Phone Number:</label>
+          <input
+            placeholder="Enter Phone Number"
+            type="text"
+            value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+            className="h-8 border-2 border-gray-300 rounded text-center mb-3"
+          />
+          <button className="bg-black text-white py-2 px-4" onClick={sendOtp}>
+            Send OTP
+          </button>
+        </div>
+        <progress
+          value={(countdown / 300) * 100}
+          max="100"
+          className="w-full h-5 bg-gray-300 rounded mt-2"
         />
+        {countdown > 0 && (
+          <p className="mt-2">
+            Time left: {formatTime(Math.floor(countdown / 60))}:
+            {formatTime(countdown % 60)}
+          </p>
+        )}
+        <div className="flex flex-col items-center">
+          <label className="mt-2 mb-1">OTP:</label>
+          <input
+            placeholder="Enter OTP here"
+            type="text"
+            value={otp}
+            onChange={(e) => setOtp(e.target.value)}
+            className="h-8 border-2 border-gray-300 rounded text-center mb-3"
+          />
+          <button
+            className="bg-black text-white py-2 px-4"
+            onClick={handleOtpVerification}
+          >
+            Verify OTP
+          </button>
+        </div>
+        {isOtpVerified && (
+          <p className="text-green-600 mt-2">OTP verification successful!</p>
+        )}
       </div>
-      <button className="bg-black text-white mt-5 mb-3" onClick={sendOtp}>
-        Send OTP
-      </button>
-      <div>
-        <label>OTP:</label>
-        <input
-          type="text"
-          value={otp}
-          onChange={(e) => setOtp(e.target.value)}
-          className="ml-10 h-8 border-2 border-gray-300 rounded text-center mr-1"
-        />
-      </div>
-      <button
-        className="bg-black text-white mt-5"
-        onClick={handleOtpVerification}
-      >
-        Verify OTP
-      </button>
-      {isOtpVerified && (
-        <p className="text-green-600">OTP verification successful!</p>
-      )}
-      {countdown > 0 && (
-        <p>
-          Time left: {Math.floor(countdown / 60)}:{countdown % 60}
-        </p>
-      )}
     </div>
   );
 };
